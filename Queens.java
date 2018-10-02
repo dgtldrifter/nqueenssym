@@ -52,15 +52,15 @@ class Queens
     		return true;
     	}
     	else{   		
-    		for(int col= 0; col <boardSize; col++){
-        		board[current] = col;
-        		if(isSafe(board,current)){
-        			isDone =solution(boardSize, board, current+1);
-        			if(isDone)
-        				return true;
-        		}	
-        	}
-    		return false;
+		for(int col= 0; col <boardSize; col++){
+			board[current] = col;
+			if(isSafe(board,current)){
+				isDone =solution(boardSize, board, current+1);
+				if(isDone)
+					return true;
+			}	
+		}
+		return false;
     	}
     }    
     
@@ -68,14 +68,11 @@ class Queens
     	boolean isDone=false;
     	if(boardSize/2 == current){
     		if(!isDone){
-    			Queens queen = new Queens();
-        		flipEven(boardSize, board, current);
-        		if(allSafeInsurance(board, boardSize)){
-        			System.out.println("DONE!");
-        			StdDraw.pause(1000);
-            		queen.draw(board);
-        			return true;
-    		}
+			flipEven(boardSize, board, current);
+			if(allSafeInsurance(board, boardSize)){
+				System.out.println("DONE!");
+				return true;
+    			}
     		}
     		
     	}
@@ -99,14 +96,11 @@ class Queens
     	boolean isDone=false;
     	if((boardSize/2)+1 == current){
     		if(!isDone){
-    			Queens queen = new Queens();
         		flipOdd(boardSize, board, current);
         		if(allSafeInsurance(board, boardSize)){
         			System.out.println("DONE!");
-        			StdDraw.pause(1000);
-            		queen.draw(board);
         			return true;
-    		}
+    			}
     		}
     		//return false;
     	}
@@ -203,6 +197,7 @@ class Queens
            else{
         	   queen.solutionSymOdd(size, board,0);  
            }
+	   queen.draw(board);
        }
        else
            System.out.println("Please input the size of the board ...");
