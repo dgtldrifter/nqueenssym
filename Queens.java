@@ -67,14 +67,11 @@ class Queens
     public boolean solutionSymEven(int boardSize, int[] board, int current){
     	boolean isDone=false;
     	if(boardSize/2 == current){
-    		if(!isDone){
-			flipEven(boardSize, board, current);
-			if(allSafeInsurance(board, boardSize)){
-				System.out.println("DONE!");
-				return true;
-    			}
-    		}
-    		
+		flipEven(boardSize, board, current);
+		if(allSafeInsurance(board, boardSize)){
+			System.out.println("DONE!");
+			return true;
+    		}	
     	}
     	else{   		
     		for(int col= 0; col <boardSize; col++){
@@ -95,14 +92,11 @@ class Queens
     public boolean solutionSymOdd(int boardSize, int[] board, int current){
     	boolean isDone=false;
     	if((boardSize/2)+1 == current){
-    		if(!isDone){
         		flipOdd(boardSize, board, current);
         		if(allSafeInsurance(board, boardSize)){
         			System.out.println("DONE!");
         			return true;
-    			}
     		}
-    		//return false;
     	}
     	else{   		
     		for(int col= 0; col <boardSize; col++){
